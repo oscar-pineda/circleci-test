@@ -2,7 +2,7 @@
 version: 2.1
 
 jobs:
-  build:
+  test:
     docker:
       - image: alpine
     steps:
@@ -13,7 +13,7 @@ jobs:
             echo 'Hello World'
 
 workflows:
-  build-n-deploy:
+  build:
     jobs:
-      - build
+      - test
 ...
