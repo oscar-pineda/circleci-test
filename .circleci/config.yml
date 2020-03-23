@@ -9,15 +9,11 @@ jobs:
       - run:
           name: print HelloWorld
           command: |
-          echo "Hello World"
+            echo 'Hello World'
+
 workflows:
   build-n-deploy:
     jobs:
+      - checkout
       - test
-      # - release:
-      #     filters:
-      #       branches:
-      #         only: 'master'
-      #     requires:
-      #       - build_and_test
 ...
