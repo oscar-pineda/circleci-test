@@ -11,9 +11,18 @@ jobs:
           name: print HelloWorld
           command: |
             echo 'Hello World'
+  test:
+    docker:
+      - image: alpine
+    steps:
+      - run:
+          name: print HelloWorld
+          command: |
+            echo 'Hello My Friend'
 
 workflows:
   build-n-deploy:
     jobs:
       - build
+      - test
 ...
