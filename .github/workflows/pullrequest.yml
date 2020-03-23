@@ -15,4 +15,5 @@ jobs:
     - name: Run Job Circleci
       run: |
         echo "Execute job build"
-        curl -X POST https://circleci.com/api/v1.1/project/gh/oscar-pineda/circleci-test/tree/update?circle-token=b825c9dadee79b709e5340477906e3ef0bae96e6
+        echo $GITHUB_HEAD_REF
+        curl -X POST https://circleci.com/api/v1.1/project/gh/oscar-pineda/circleci-test/tree/$GITHUB_HEAD_REF?circle-token=b825c9dadee79b709e5340477906e3ef0bae96e6
