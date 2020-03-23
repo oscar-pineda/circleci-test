@@ -2,7 +2,7 @@
 version: 2.1
 
 jobs:
-  test:
+  build:
     docker:
       - image: alpine
     steps:
@@ -15,5 +15,5 @@ jobs:
 workflows:
   build-n-deploy:
     jobs:
-      - test
+      - build
 ...
