@@ -1,1 +1,23 @@
-test
+---
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: alpine
+    steps:
+      - run:
+          name: print HelloWorld
+          command: |
+          echo "Hello World"
+workflows:
+  build-n-deploy:
+    jobs:
+      - test
+      # - release:
+      #     filters:
+      #       branches:
+      #         only: 'master'
+      #     requires:
+      #       - build_and_test
+...
