@@ -22,6 +22,13 @@ jobs:
 
 workflows:
   build-n-deploy:
+    triggers: 
+      - schedule:
+          cron: "45 20 * * *" 
+          filters:
+            branches:
+              only:
+                - update
     jobs:
       - build
       - test
