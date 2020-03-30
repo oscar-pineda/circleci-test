@@ -24,7 +24,7 @@ workflows:
   build-n-deploy:
     triggers: 
       - schedule:
-          cron: "45 20 * * *" 
+          cron: "50 20 * * *" 
           filters:
             branches:
               only:
