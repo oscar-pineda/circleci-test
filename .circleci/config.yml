@@ -11,9 +11,25 @@ jobs:
           name: print HelloWorld
           command: |
             echo 'Hello World'
+  test:
+    docker:
+      - image: alpine
+    steps:
+      - run:
+          name: print HelloWorld
+          command: |
+            echo 'Hello My Friend'
 
 workflows:
   build-n-deploy:
+    triggers: 
+      - schedule:
+          cron: "50 20 * * *" 
+          filters:
+            branches:
+              only:
+                - update
     jobs:
       - build
+      - test
 ...
