@@ -26,7 +26,7 @@ jobs:
           at: /home/circleci/project
       - run:
           name: test var
-          command: ls && cat tmp/artifac-num
+          command: ls
       - run:
           name: print HelloWorld
           command: |
@@ -36,5 +36,6 @@ workflows:
   build-n-deploy:
     jobs:
       - build
-      - test
+      - test:
+          requires: build
 ...
