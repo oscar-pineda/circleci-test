@@ -23,10 +23,10 @@ jobs:
       - image: alpine
     steps:
       - attach_workspace:
-          at: /home/circleci/project
+          at: /
       - run:
           name: test var
-          command: ls
+          command: ls / && pwd
       - run:
           name: print HelloWorld
           command: |
