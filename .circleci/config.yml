@@ -11,10 +11,22 @@ jobs:
           name: print HelloWorld
           command: |
             echo 'Hello World'
+      - run:
+          name: Save build num image tag
+          command: echo ${CIRCLE_BUILD_NUM} >> /tmp/artifac-num && cat /tmp/artifac-num
+      - persist_to_workspace:
+          root: /
+          paths:
+            - tmp/artifac-num
   test:
     docker:
       - image: alpine
     steps:
+      - attach_workspace:
+          at: /home/circleci/project
+      - run:
+          name: test var
+          command: ls && cat tmp/artifac-num
       - run:
           name: print HelloWorld
           command: |
